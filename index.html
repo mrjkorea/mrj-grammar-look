@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lesson 1</title>
+  <style>
+    * { box-sizing: border-box; }
+    html {
+      background: #F6EFE6;
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+    }
+    body {
+      margin: 0;
+      background: #F6EFE6;
+      color: #1A1714;
+      font-family: system-ui, sans-serif;
+      font-size: 20px;
+      line-height: 1.4;
+    }
+    .page {
+      max-width: 430px;
+      margin: 0 auto;
+      padding: 16px 14px 32px;
+    }
+    .card {
+      background: #FFFDF8;
+      border: 3px solid #E24A2B;
+      border-radius: 16px;
+      padding: 18px;
+    }
+    .lesson {
+      margin: 0 0 4px;
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      color: #6E675F;
+    }
+    h1 {
+      margin: 0 0 16px;
+      font-size: 28px;
+      line-height: 1.2;
+      font-weight: 700;
+      color: #1A1714;
+    }
+    h2 {
+      margin: 22px 0 10px;
+      font-size: 22px;
+      line-height: 1.25;
+      font-weight: 700;
+      color: #1A1714;
+    }
+    p { margin: 0 0 10px; }
+    .am { color: #E24A2B; font-weight: 700; }
+    .is { color: #2F6FE4; font-weight: 700; }
+    .are { color: #2F9E5B; font-weight: 700; }
+    .pair {
+      display: grid;
+      grid-template-columns: 1fr auto auto;
+      gap: 8px 12px;
+      align-items: baseline;
+      padding: 9px 0;
+      border-top: 1px solid #EFE6DC;
+    }
+    .arrow { color: #8A8178; }
+    .under { margin: 12px 0 0; }
+    .formula {
+      margin: 0 0 8px;
+      color: #3A342E;
+    }
+    .fit {
+      display: grid;
+      grid-template-columns: 4.2em 2.4em 1fr;
+      gap: 4px 10px;
+      align-items: baseline;
+      padding: 7px 0;
+      border-top: 1px solid #EFE6DC;
+    }
+    .examples p { margin: 0; padding: 7px 0; border-top: 1px solid #EFE6DC; }
+    .wrong {
+      margin: 14px 0 0;
+      color: #A15C5C;
+    }
+    .right { margin: 0 0 2px; }
+    .right.am { color: #E24A2B; }
+    .right.is { color: #2F6FE4; }
+    .right.are { color: #2F9E5B; }
+    .slot-label {
+      margin: 22px 0 8px;
+      font-size: 16px;
+      color: #6E675F;
+    }
+    .slot {
+      background: #E4DED6;
+      border-radius: 8px;
+      min-height: 52px;
+    }
+    .footer {
+      margin: 18px 0 0;
+      font-size: 16px;
+      line-height: 1.35;
+      color: #8A8178;
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <article class="card">
+      <p class="lesson">Lesson 1</p>
+      <h1>be = <span class="am">am</span>, <span class="are">are</span>, <span class="is">is</span></h1>
+
+      <p>We use be to say what someone or something is.</p>
+      <p><span class="am">am</span>, <span class="is">is</span>, and <span class="are">are</span> are shapes of be.</p>
+
+      <h2>be changes shape</h2>
+      <div class="pair"><span>I</span><span class="arrow">→</span><span class="am">am</span></div>
+      <div class="pair"><span>he / she / it</span><span class="arrow">→</span><span class="is">is</span></div>
+      <div class="pair"><span>you / we / they</span><span class="arrow">→</span><span class="are">are</span></div>
+      <p class="under">You means one or many.</p>
+      <p class="under">Same word. Three shapes.</p>
+
+      <h2>How to form</h2>
+      <p class="formula">Three pieces that fit: who + be + what.</p>
+      <div class="fit"><span>I</span><span class="am">am</span><span>a teacher.</span></div>
+      <div class="fit"><span>He</span><span class="is">is</span><span>a doctor.</span></div>
+      <div class="fit"><span>They</span><span class="are">are</span><span>students.</span></div>
+
+      <h2>Examples</h2>
+      <div class="examples">
+        <p>I <span class="am">am</span> a teacher.</p>
+        <p>He <span class="is">is</span> a doctor.</p>
+        <p>She <span class="is">is</span> a student.</p>
+        <p>It <span class="is">is</span> a bag.</p>
+        <p>You <span class="are">are</span> a pilot.</p>
+        <p>We <span class="are">are</span> friends.</p>
+        <p>They <span class="are">are</span> students.</p>
+      </div>
+
+      <h2>Do not do this</h2>
+      <p class="wrong">He a doctor.</p>
+      <p class="right is">He is a doctor.</p>
+      <p class="wrong">I is a teacher.</p>
+      <p class="right am">I am a teacher.</p>
+      <p class="wrong">They is students.</p>
+      <p class="right are">They are students.</p>
+
+      <p class="slot-label">Other language later</p>
+      <div class="slot"></div>
+
+      <p class="footer">This is the first lesson. No earlier lesson.</p>
+    </article>
+  </main>
+</body>
+</html>
