@@ -3,153 +3,260 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Lesson 1</title>
+  <title>be</title>
   <style>
     * { box-sizing: border-box; }
     html {
-      background: #F6EFE6;
+      background: #F6F0E6;
       -webkit-text-size-adjust: 100%;
       text-size-adjust: 100%;
     }
     body {
       margin: 0;
-      background: #F6EFE6;
+      background: #F6F0E6;
       color: #1A1714;
       font-family: system-ui, sans-serif;
-      font-size: 20px;
-      line-height: 1.4;
+      font-size: 22px;
+      line-height: 1.35;
     }
-    .page {
+    .frame {
       max-width: 430px;
       margin: 0 auto;
-      padding: 16px 14px 32px;
-    }
-    .card {
-      background: #FFFDF8;
-      border: 3px solid #E24A2B;
-      border-radius: 16px;
-      padding: 18px;
-    }
-    .lesson {
-      margin: 0 0 4px;
-      font-size: 16px;
-      font-weight: 600;
-      letter-spacing: 0.03em;
-      color: #6E675F;
+      min-height: 100vh;
+      background: #FFFCF8;
+      border: 4px solid #E07A5F;
+      padding: 20px 14px 32px;
     }
     h1 {
-      margin: 0 0 16px;
-      font-size: 28px;
+      margin: 0 0 12px;
+      font-size: 32px;
       line-height: 1.2;
-      font-weight: 700;
-      color: #1A1714;
+      font-weight: 800;
     }
     h2 {
-      margin: 22px 0 10px;
-      font-size: 22px;
+      margin: 26px 0 12px;
+      font-size: 26px;
       line-height: 1.25;
+      font-weight: 800;
+    }
+    p { margin: 0; font-size: 22px; }
+    .meaning { margin: 0 0 8px; }
+    .am { color: #E24A2B; font-weight: 800; }
+    .is { color: #2F6FE4; font-weight: 800; }
+    .are { color: #2F9E5B; font-weight: 800; }
+    .line {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 12px 0;
+    }
+    .draw {
+      width: 88px;
+      height: 88px;
+      flex: 0 0 88px;
+    }
+    .line p { font-size: 24px; font-weight: 650; }
+    .form-row {
+      position: relative;
+      margin: 0 0 12px;
+    }
+    .form-row svg {
+      width: 100%;
+      height: 76px;
+      display: block;
+    }
+    .form-words {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      grid-template-columns: 24% 20% 1fr;
+      align-items: center;
+      font-size: 22px;
       font-weight: 700;
-      color: #1A1714;
+      line-height: 1.2;
+      white-space: nowrap;
     }
-    p { margin: 0 0 10px; }
-    .am { color: #E24A2B; font-weight: 700; }
-    .is { color: #2F6FE4; font-weight: 700; }
-    .are { color: #2F9E5B; font-weight: 700; }
-    .pair {
-      display: grid;
-      grid-template-columns: 1fr auto auto;
-      gap: 8px 12px;
-      align-items: baseline;
-      padding: 9px 0;
-      border-top: 1px solid #EFE6DC;
+    .form-words span:nth-child(1),
+    .form-words span:nth-child(2) { text-align: center; }
+    .form-words span:nth-child(3) { padding-left: 18px; }
+    .problems {
+      margin-top: 28px;
+      background: #E4EEF8;
+      border-radius: 14px;
+      padding: 16px 14px 8px;
     }
-    .arrow { color: #8A8178; }
-    .under { margin: 12px 0 0; }
-    .formula {
-      margin: 0 0 8px;
-      color: #3A342E;
+    .problems h2 { margin-top: 0; }
+    .problem { padding: 4px 0 14px; }
+    .problem + .problem {
+      border-top: 2px solid #C5D6EA;
+      padding-top: 14px;
     }
-    .fit {
-      display: grid;
-      grid-template-columns: 4.2em 2.4em 1fr;
-      gap: 4px 10px;
-      align-items: baseline;
-      padding: 7px 0;
-      border-top: 1px solid #EFE6DC;
-    }
-    .examples p { margin: 0; padding: 7px 0; border-top: 1px solid #EFE6DC; }
     .wrong {
-      margin: 14px 0 0;
-      color: #A15C5C;
+      color: #A33B3B;
+      text-decoration: line-through;
+      text-decoration-thickness: 2px;
+      margin-bottom: 4px;
     }
-    .right { margin: 0 0 2px; }
-    .right.am { color: #E24A2B; }
-    .right.is { color: #2F6FE4; }
-    .right.are { color: #2F9E5B; }
-    .slot-label {
-      margin: 22px 0 8px;
-      font-size: 16px;
-      color: #6E675F;
-    }
-    .slot {
-      background: #E4DED6;
-      border-radius: 8px;
-      min-height: 52px;
-    }
-    .footer {
-      margin: 18px 0 0;
-      font-size: 16px;
-      line-height: 1.35;
-      color: #8A8178;
-    }
+    .right { margin-bottom: 4px; }
+    .why { margin-bottom: 0; }
   </style>
 </head>
 <body>
-  <main class="page">
-    <article class="card">
-      <p class="lesson">Lesson 1</p>
-      <h1>be = <span class="am">am</span>, <span class="are">are</span>, <span class="is">is</span></h1>
+  <main class="frame">
+    <h1>be</h1>
+    <p class="meaning">We use <b>be</b> to say what someone or something <span class="is">is</span>. <span class="am">am</span>, <span class="is">is</span>, and <span class="are">are</span> are shapes of <b>be</b>.</p>
 
-      <p>We use be to say what someone or something is.</p>
-      <p><span class="am">am</span>, <span class="is">is</span>, and <span class="are">are</span> are shapes of be.</p>
+    <div class="line">
+      <svg class="draw" viewBox="0 0 96 96" aria-hidden="true">
+        <rect x="50" y="8" width="38" height="32" rx="4" fill="#1E5C45"/>
+        <path d="M60 32 L69 14 L78 32" fill="none" stroke="#F6E7B2" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M63 26 H75" stroke="#F6E7B2" stroke-width="3" stroke-linecap="round"/>
+        <path d="M16 88 V56 c0-10 8-16 18-16 h4 c10 0 18 6 18 16 V88 Z" fill="#2F6FE4"/>
+        <circle cx="36" cy="32" r="14" fill="#2A241F"/>
+        <circle cx="36" cy="38" r="13" fill="#F3C7A6"/>
+        <path d="M50 58 L66 36" stroke="#E8B892" stroke-width="6" stroke-linecap="round"/>
+      </svg>
+      <p>I <span class="am">am</span> a teacher.</p>
+    </div>
 
-      <h2>be changes shape</h2>
-      <div class="pair"><span>I</span><span class="arrow">→</span><span class="am">am</span></div>
-      <div class="pair"><span>he / she / it</span><span class="arrow">→</span><span class="is">is</span></div>
-      <div class="pair"><span>you / we / they</span><span class="arrow">→</span><span class="are">are</span></div>
-      <p class="under">You means one or many.</p>
-      <p class="under">Same word. Three shapes.</p>
+    <div class="line">
+      <svg class="draw" viewBox="0 0 96 96" aria-hidden="true">
+        <path d="M24 90 V56 c0-10 10-18 24-18 s24 8 24 18 V90 Z" fill="#F4F7FA" stroke="#7E93A8" stroke-width="2.5"/>
+        <path d="M48 42 V90" stroke="#7E93A8" stroke-width="2.5"/>
+        <circle cx="48" cy="30" r="14" fill="#2A241F"/>
+        <circle cx="48" cy="36" r="13" fill="#F3C7A6"/>
+        <path d="M40 48 c0 8 3 12 8 14 c5-2 8-6 8-14" fill="none" stroke="#2F6FE4" stroke-width="3.5" stroke-linecap="round"/>
+        <path d="M38 46 v7 M58 46 v7" stroke="#2F6FE4" stroke-width="3.5" stroke-linecap="round"/>
+        <circle cx="48" cy="66" r="5" fill="none" stroke="#2F6FE4" stroke-width="3"/>
+        <circle cx="48" cy="66" r="2" fill="#2F6FE4"/>
+      </svg>
+      <p>He <span class="is">is</span> a doctor.</p>
+    </div>
 
-      <h2>How to form</h2>
-      <p class="formula">Three pieces that fit: who + be + what.</p>
-      <div class="fit"><span>I</span><span class="am">am</span><span>a teacher.</span></div>
-      <div class="fit"><span>He</span><span class="is">is</span><span>a doctor.</span></div>
-      <div class="fit"><span>They</span><span class="are">are</span><span>students.</span></div>
+    <div class="line">
+      <svg class="draw" viewBox="0 0 96 96" aria-hidden="true">
+        <path d="M64 12 L92 22 L64 32 L72 22 Z" fill="#2F6FE4"/>
+        <path d="M20 90 V58 c0-10 8-16 20-16 s20 6 20 16 V90 Z" fill="#1E4E86"/>
+        <circle cx="40" cy="52" r="13" fill="#F3C7A6"/>
+        <path d="M24 44 h32 v-2 c0-12-7-16-16-16 s-16 5-16 16 v2z" fill="#16324F"/>
+        <rect x="18" y="40" width="44" height="8" rx="2" fill="#12283F"/>
+        <path d="M30 44 h20" stroke="#E2B84A" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M32 44 l-6-4 M48 44 l6-4" stroke="#E2B84A" stroke-width="2.5" stroke-linecap="round"/>
+      </svg>
+      <p>You <span class="are">are</span> a pilot.</p>
+    </div>
 
-      <h2>Examples</h2>
-      <div class="examples">
-        <p>I <span class="am">am</span> a teacher.</p>
-        <p>He <span class="is">is</span> a doctor.</p>
-        <p>She <span class="is">is</span> a student.</p>
-        <p>It <span class="is">is</span> a bag.</p>
-        <p>You <span class="are">are</span> a pilot.</p>
-        <p>We <span class="are">are</span> friends.</p>
-        <p>They <span class="are">are</span> students.</p>
+    <h2>How to form</h2>
+
+    <div class="form-row">
+      <svg viewBox="0 0 500 80" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M230 8 H482 A10 10 0 0 1 492 18 V62 A10 10 0 0 1 482 72 H230 A10 10 0 0 1 220 62 V55 A15 15 0 0 0 220 25 V18 A10 10 0 0 1 230 8 Z" fill="#FFFFFF" stroke="#D06A52" stroke-width="3" stroke-linejoin="round"/>
+        <path d="M130 8 H220 V28 A12 12 0 0 1 220 52 V72 H130 A10 10 0 0 1 120 62 V55 A15 15 0 0 0 120 25 V18 A10 10 0 0 1 130 8 Z" fill="#FFF1EC" stroke="#E24A2B" stroke-width="3" stroke-linejoin="round"/>
+        <path d="M18 8 H120 V28 A12 12 0 0 1 120 52 V72 H18 A10 10 0 0 1 8 62 V18 A10 10 0 0 1 18 8 Z" fill="#FFFFFF" stroke="#D06A52" stroke-width="3" stroke-linejoin="round"/>
+      </svg>
+      <div class="form-words">
+        <span>I</span>
+        <span class="am">am</span>
+        <span>a teacher.</span>
       </div>
+    </div>
 
-      <h2>Do not do this</h2>
-      <p class="wrong">He a doctor.</p>
-      <p class="right is">He is a doctor.</p>
-      <p class="wrong">I is a teacher.</p>
-      <p class="right am">I am a teacher.</p>
-      <p class="wrong">They is students.</p>
-      <p class="right are">They are students.</p>
+    <div class="form-row">
+      <svg viewBox="0 0 500 80" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M230 8 H482 A10 10 0 0 1 492 18 V62 A10 10 0 0 1 482 72 H230 A10 10 0 0 1 220 62 V55 A15 15 0 0 0 220 25 V18 A10 10 0 0 1 230 8 Z" fill="#FFFFFF" stroke="#D06A52" stroke-width="3" stroke-linejoin="round"/>
+        <path d="M130 8 H220 V28 A12 12 0 0 1 220 52 V72 H130 A10 10 0 0 1 120 62 V55 A15 15 0 0 0 120 25 V18 A10 10 0 0 1 130 8 Z" fill="#EEF3FC" stroke="#2F6FE4" stroke-width="3" stroke-linejoin="round"/>
+        <path d="M18 8 H120 V28 A12 12 0 0 1 120 52 V72 H18 A10 10 0 0 1 8 62 V18 A10 10 0 0 1 18 8 Z" fill="#FFFFFF" stroke="#D06A52" stroke-width="3" stroke-linejoin="round"/>
+      </svg>
+      <div class="form-words">
+        <span>He</span>
+        <span class="is">is</span>
+        <span>a doctor.</span>
+      </div>
+    </div>
 
-      <p class="slot-label">Other language later</p>
-      <div class="slot"></div>
+    <div class="form-row">
+      <svg viewBox="0 0 500 80" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M230 8 H482 A10 10 0 0 1 492 18 V62 A10 10 0 0 1 482 72 H230 A10 10 0 0 1 220 62 V55 A15 15 0 0 0 220 25 V18 A10 10 0 0 1 230 8 Z" fill="#FFFFFF" stroke="#D06A52" stroke-width="3" stroke-linejoin="round"/>
+        <path d="M130 8 H220 V28 A12 12 0 0 1 220 52 V72 H130 A10 10 0 0 1 120 62 V55 A15 15 0 0 0 120 25 V18 A10 10 0 0 1 130 8 Z" fill="#E9F7EF" stroke="#2F9E5B" stroke-width="3" stroke-linejoin="round"/>
+        <path d="M18 8 H120 V28 A12 12 0 0 1 120 52 V72 H18 A10 10 0 0 1 8 62 V18 A10 10 0 0 1 18 8 Z" fill="#FFFFFF" stroke="#D06A52" stroke-width="3" stroke-linejoin="round"/>
+      </svg>
+      <div class="form-words">
+        <span>They</span>
+        <span class="are">are</span>
+        <span>students.</span>
+      </div>
+    </div>
 
-      <p class="footer">This is the first lesson. No earlier lesson.</p>
-    </article>
+    <h2>More examples</h2>
+
+    <div class="line">
+      <svg class="draw" viewBox="0 0 96 96" aria-hidden="true">
+        <path d="M28 92 V58 c0-10 8-16 20-16 s20 6 20 16 V92 Z" fill="#E24A2B"/>
+        <circle cx="48" cy="32" r="14" fill="#2A241F"/>
+        <circle cx="48" cy="38" r="13" fill="#F3C7A6"/>
+        <path d="M20 60 h22 l6 6 6-6 h22 v22 H20 Z" fill="#F6E7B2" stroke="#C49A45" stroke-width="2.5" stroke-linejoin="round"/>
+        <path d="M48 60 v22" stroke="#C49A45" stroke-width="2.5"/>
+      </svg>
+      <p>She <span class="is">is</span> a student.</p>
+    </div>
+
+    <div class="line">
+      <svg class="draw" viewBox="0 0 96 96" aria-hidden="true">
+        <path d="M34 40 c0-14 28-14 28 0" fill="none" stroke="#1A1714" stroke-width="5" stroke-linecap="round"/>
+        <path d="M18 42 h60 l-6 42 H24 Z" fill="#2F6FE4"/>
+        <path d="M18 42 h60 v12 H18 Z" fill="#1E4E9A"/>
+        <rect x="40" y="64" width="16" height="12" rx="3" fill="#F6E7B2"/>
+      </svg>
+      <p>It <span class="is">is</span> a bag.</p>
+    </div>
+
+    <div class="line">
+      <svg class="draw" viewBox="0 0 96 96" aria-hidden="true">
+        <path d="M8 90 V56 c0-10 8-16 18-16 6 0 11 2 14 6" fill="#2F6FE4"/>
+        <path d="M88 90 V56 c0-10-8-16-18-16 -6 0-11 2-14 6" fill="#2F9E5B"/>
+        <path d="M32 62 H64" stroke="#F3C7A6" stroke-width="7" stroke-linecap="round"/>
+        <circle cx="30" cy="32" r="13" fill="#3A3028"/>
+        <circle cx="30" cy="38" r="12" fill="#F3C7A6"/>
+        <circle cx="66" cy="32" r="13" fill="#2A241F"/>
+        <circle cx="66" cy="38" r="12" fill="#E7B898"/>
+      </svg>
+      <p>We <span class="are">are</span> friends.</p>
+    </div>
+
+    <div class="line">
+      <svg class="draw" viewBox="0 0 96 96" aria-hidden="true">
+        <path d="M6 92 V58 c0-9 7-14 16-14 s16 5 16 14 V92 Z" fill="#2F6FE4"/>
+        <path d="M58 92 V58 c0-9 7-14 16-14 s16 5 16 14 V92 Z" fill="#E24A2B"/>
+        <circle cx="22" cy="32" r="12" fill="#2A241F"/>
+        <circle cx="22" cy="38" r="11" fill="#F3C7A6"/>
+        <circle cx="74" cy="32" r="12" fill="#3A3028"/>
+        <circle cx="74" cy="38" r="11" fill="#E7B898"/>
+        <path d="M10 62 h16 l4 4 4-4 h16 v14 H10 Z" fill="#F6E7B2" stroke="#C49A45" stroke-width="2" stroke-linejoin="round"/>
+        <path d="M30 62 v14" stroke="#C49A45" stroke-width="2"/>
+        <path d="M56 62 h16 l4 4 4-4 h16 v14 H56 Z" fill="#F6E7B2" stroke="#C49A45" stroke-width="2" stroke-linejoin="round"/>
+        <path d="M76 62 v14" stroke="#C49A45" stroke-width="2"/>
+      </svg>
+      <p>They <span class="are">are</span> students.</p>
+    </div>
+
+    <section class="problems">
+      <h2>Common problems</h2>
+      <div class="problem">
+        <p class="wrong">He a doctor.</p>
+        <p class="right">He <span class="is">is</span> a doctor.</p>
+        <p class="why">The be word is missing.</p>
+      </div>
+      <div class="problem">
+        <p class="wrong">I <span class="is">is</span> a teacher.</p>
+        <p class="right">I <span class="am">am</span> a teacher.</p>
+        <p class="why">I takes <span class="am">am</span>.</p>
+      </div>
+      <div class="problem">
+        <p class="wrong">They <span class="is">is</span> students.</p>
+        <p class="right">They <span class="are">are</span> students.</p>
+        <p class="why">They takes <span class="are">are</span>.</p>
+      </div>
+    </section>
   </main>
 </body>
 </html>
