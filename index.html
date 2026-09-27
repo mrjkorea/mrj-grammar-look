@@ -1,9 +1,11 @@
 <!DOCTYPE html>
+<!-- look-20260927-1630 -->
+
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>be</title>
+  <title>be = am, are, is</title>
   <style>
     * { box-sizing: border-box; }
     html {
@@ -28,27 +30,88 @@
       padding: 20px 14px 32px;
     }
     h1 {
-      margin: 0 0 12px;
+      margin: 0 0 14px;
       font-size: 32px;
       line-height: 1.2;
       font-weight: 800;
+      text-align: center;
     }
     h2 {
-      margin: 26px 0 12px;
+      margin: 22px 0 12px;
       font-size: 26px;
       line-height: 1.25;
       font-weight: 800;
     }
     p { margin: 0; font-size: 22px; }
-    .meaning { margin: 0 0 8px; }
+    .blank { display: none; }
+    .scene-wrap {
+      display: flex;
+      justify-content: center;
+      margin: 0 0 8px;
+    }
+    .scene {
+      width: 280px;
+      height: auto;
+      display: block;
+    }
+    .hero {
+      margin: 8px 0 16px;
+      font-size: 28px;
+      font-weight: 800;
+      text-align: center;
+      line-height: 1.3;
+    }
+    .meaning { margin: 0 0 4px; }
     .am { color: #E24A2B; font-weight: 800; }
     .is { color: #2F6FE4; font-weight: 800; }
     .are { color: #2F9E5B; font-weight: 800; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 18px 0 20px;
+      background: #fff;
+      font-size: 22px;
+      border: 3px solid #1A1714;
+    }
+    th, td {
+      border: 2px solid #1A1714;
+      padding: 10px 12px;
+      text-align: left;
+      font-size: 22px;
+    }
+    th {
+      background: #1A1714;
+      color: #FFFCF8;
+      font-weight: 800;
+    }
+    td.arrow {
+      width: 42px;
+      text-align: center;
+      color: #8A8178;
+      font-weight: 700;
+    }
+    .form-row {
+      margin: 0 0 16px;
+    }
+    .form-row svg {
+      width: 100%;
+      height: auto;
+      display: block;
+      overflow: visible;
+    }
+    .piece-word {
+      font-family: system-ui, sans-serif;
+      font-weight: 800;
+      fill: #1A1714;
+    }
+    .piece-word.am { fill: #E24A2B; }
+    .piece-word.is { fill: #2F6FE4; }
+    .piece-word.are { fill: #2F9E5B; }
     .line {
       display: flex;
       align-items: center;
       gap: 14px;
-      padding: 12px 0;
+      padding: 10px 0;
     }
     .draw {
       width: 88px;
@@ -56,31 +119,57 @@
       flex: 0 0 88px;
     }
     .line p { font-size: 24px; font-weight: 650; }
-    .form-row {
+    .time {
+      margin-top: 26px;
+      padding: 16px 10px 14px;
+      background: #F3E4C8;
+      border-radius: 16px;
+    }
+    .time-line {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
       position: relative;
-      margin: 0 0 12px;
+      margin: 0 8px 12px;
     }
-    .form-row svg {
-      width: 100%;
-      height: 76px;
-      display: block;
-    }
-    .form-words {
+    .time-line::before {
+      content: "";
       position: absolute;
-      inset: 0;
-      display: grid;
-      grid-template-columns: 24% 20% 1fr;
-      align-items: center;
+      left: 10%;
+      right: 10%;
+      top: 12px;
+      height: 4px;
+      background: #CDB89A;
+      border-radius: 4px;
+    }
+    .mark { width: 33%; text-align: center; }
+    .dot {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: #C8BEB2;
+      display: block;
+      margin: 0 auto 8px;
+      position: relative;
+      z-index: 1;
+      border: 3px solid #F3E4C8;
+    }
+    .lab { font-size: 22px; font-weight: 700; color: #6E655C; }
+    .mark.now .dot {
+      width: 28px;
+      height: 28px;
+      background: #2F6FE4;
+      box-shadow: 0 0 0 6px #D5E4FA;
+      margin-top: -3px;
+    }
+    .mark.now .lab { color: #2F6FE4; font-weight: 800; }
+    .caption {
+      text-align: center;
       font-size: 22px;
       font-weight: 700;
-      line-height: 1.2;
-      white-space: nowrap;
     }
-    .form-words span:nth-child(1),
-    .form-words span:nth-child(2) { text-align: center; }
-    .form-words span:nth-child(3) { padding-left: 18px; }
     .problems {
-      margin-top: 28px;
+      margin-top: 26px;
       background: #E4EEF8;
       border-radius: 14px;
       padding: 16px 14px 8px;
@@ -97,14 +186,112 @@
       text-decoration-thickness: 2px;
       margin-bottom: 4px;
     }
-    .right { margin-bottom: 4px; }
+    .right { margin-bottom: 4px; font-weight: 700; }
     .why { margin-bottom: 0; }
   </style>
 </head>
 <body>
   <main class="frame">
-    <h1>be</h1>
+    <h1>be = am, are, is</h1>
+
+    <div class="scene-wrap">
+      <svg class="scene" viewBox="0 0 280 210" role="img" aria-label="A doctor">
+        <rect x="0" y="0" width="280" height="210" rx="18" fill="#F4E7D4"/>
+        <rect x="16" y="16" width="72" height="56" rx="6" fill="#8EC8E8"/>
+        <path d="M16 44 H88 M52 16 V72" stroke="#C4A574" stroke-width="4"/>
+        <rect x="16" y="16" width="72" height="56" rx="6" fill="none" stroke="#C4A574" stroke-width="4"/>
+        <circle cx="34" cy="32" r="6" fill="#F6E27A"/>
+        <rect x="196" y="78" width="26" height="18" rx="3" fill="#C46B4A"/>
+        <ellipse cx="209" cy="70" rx="18" ry="11" fill="#2F9E5B"/>
+        <ellipse cx="194" cy="78" rx="12" ry="8" fill="#3CB371"/>
+        <ellipse cx="224" cy="80" rx="11" ry="8" fill="#248A4E"/>
+        <rect x="0" y="168" width="280" height="42" fill="#E7D3B8"/>
+        <path d="M92 200 V128 c0-16 16-28 48-28 s48 12 48 28 V200 Z" fill="#F7F7F5"/>
+        <path d="M118 104 h44 l-6 30 h-32 Z" fill="#3D7FE0"/>
+        <path d="M140 104 V200" stroke="#E4E0D8" stroke-width="2"/>
+        <path d="M108 128 q-6 18 2 40" fill="none" stroke="#D9D4CC" stroke-width="2"/>
+        <path d="M172 128 q6 18 -2 40" fill="none" stroke="#D9D4CC" stroke-width="2"/>
+        <circle cx="140" cy="78" r="28" fill="#2C2622"/>
+        <circle cx="140" cy="86" r="25" fill="#F3C7A6"/>
+        <path d="M114 80 c4-30 48-32 54 0 c-6-18-44-18-54 0z" fill="#2C2622"/>
+        <circle cx="130" cy="86" r="2.4" fill="#1A1714"/>
+        <circle cx="152" cy="86" r="2.4" fill="#1A1714"/>
+        <path d="M128 98 q12 10 24 0" fill="none" stroke="#1A1714" stroke-width="2.2" stroke-linecap="round"/>
+        <path d="M122 118 q-22 28 -6 52" fill="none" stroke="#2F6FE4" stroke-width="5" stroke-linecap="round"/>
+        <path d="M158 118 q22 28 6 52" fill="none" stroke="#2F6FE4" stroke-width="5" stroke-linecap="round"/>
+        <path d="M116 168 H164" stroke="#2F6FE4" stroke-width="5" stroke-linecap="round"/>
+        <circle cx="168" cy="178" r="9" fill="#E24A2B" stroke="#2F6FE4" stroke-width="3"/>
+        <path d="M188 136 q28 -6 34 22" fill="none" stroke="#F3C7A6" stroke-width="12" stroke-linecap="round"/>
+        <circle cx="224" cy="160" r="8" fill="#F3C7A6"/>
+      </svg>
+    </div>
+
+    <p class="hero">He <span class="is">is</span> a doctor.</p>
+
     <p class="meaning">We use <b>be</b> to say what someone or something <span class="is">is</span>. <span class="am">am</span>, <span class="is">is</span>, and <span class="are">are</span> are shapes of <b>be</b>.</p>
+    <span class="blank"></span>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Who</th>
+          <th></th>
+          <th>Shape</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>I</td>
+          <td class="arrow">→</td>
+          <td class="am">am</td>
+        </tr>
+        <tr>
+          <td>he / she / it</td>
+          <td class="arrow">→</td>
+          <td class="is">is</td>
+        </tr>
+        <tr>
+          <td>you / we / they</td>
+          <td class="arrow">→</td>
+          <td class="are">are</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="form-row">
+      <svg viewBox="0 0 400 132" role="img" aria-label="I am a teacher.">
+        <path d="M20 6 H72 A16 16 0 0 1 88 22 V56.67 A16 16 0 1 0 88 75.33 V110 A16 16 0 0 1 72 126 H20 A16 16 0 0 1 4 110 V22 A16 16 0 0 1 20 6 Z" fill="#FFFFFF" stroke="#1A1714" stroke-width="5" stroke-linejoin="round"/>
+        <path d="M110 6 H174 A16 16 0 0 1 190 22 V56.67 A16 16 0 1 0 190 75.33 V110 A16 16 0 0 1 174 126 H110 A16 16 0 0 1 94 110 V88.96 A24 24 0 1 1 94 43.04 V22 A16 16 0 0 1 110 6 Z" fill="#FFF1EC" stroke="#E24A2B" stroke-width="5" stroke-linejoin="round"/>
+        <path d="M212 6 H380 A16 16 0 0 1 396 22 V110 A16 16 0 0 1 380 126 H212 A16 16 0 0 1 196 110 V88.96 A24 24 0 1 1 196 43.04 V22 A16 16 0 0 1 212 6 Z" fill="#FFFFFF" stroke="#1A1714" stroke-width="5" stroke-linejoin="round"/>
+        <text class="piece-word" x="46" y="66" text-anchor="middle" dominant-baseline="central" font-size="24">I</text>
+        <text class="piece-word am" x="157" y="66" text-anchor="middle" dominant-baseline="central" font-size="24">am</text>
+        <text class="piece-word" x="308" y="66" text-anchor="middle" dominant-baseline="central" font-size="24">a teacher.</text>
+      </svg>
+    </div>
+
+    <div class="form-row">
+      <svg viewBox="0 0 400 132" role="img" aria-label="He is a doctor.">
+        <path d="M20 6 H72 A16 16 0 0 1 88 22 V56.67 A16 16 0 1 0 88 75.33 V110 A16 16 0 0 1 72 126 H20 A16 16 0 0 1 4 110 V22 A16 16 0 0 1 20 6 Z" fill="#FFFFFF" stroke="#1A1714" stroke-width="5" stroke-linejoin="round"/>
+        <path d="M110 6 H174 A16 16 0 0 1 190 22 V56.67 A16 16 0 1 0 190 75.33 V110 A16 16 0 0 1 174 126 H110 A16 16 0 0 1 94 110 V88.96 A24 24 0 1 1 94 43.04 V22 A16 16 0 0 1 110 6 Z" fill="#EEF3FC" stroke="#2F6FE4" stroke-width="5" stroke-linejoin="round"/>
+        <path d="M212 6 H380 A16 16 0 0 1 396 22 V110 A16 16 0 0 1 380 126 H212 A16 16 0 0 1 196 110 V88.96 A24 24 0 1 1 196 43.04 V22 A16 16 0 0 1 212 6 Z" fill="#FFFFFF" stroke="#1A1714" stroke-width="5" stroke-linejoin="round"/>
+        <text class="piece-word" x="46" y="66" text-anchor="middle" dominant-baseline="central" font-size="24">He</text>
+        <text class="piece-word is" x="157" y="66" text-anchor="middle" dominant-baseline="central" font-size="24">is</text>
+        <text class="piece-word" x="308" y="66" text-anchor="middle" dominant-baseline="central" font-size="24">a doctor.</text>
+      </svg>
+    </div>
+
+    <div class="form-row">
+      <svg viewBox="0 0 400 132" role="img" aria-label="They are students.">
+        <path d="M20 6 H72 A16 16 0 0 1 88 22 V56.67 A16 16 0 1 0 88 75.33 V110 A16 16 0 0 1 72 126 H20 A16 16 0 0 1 4 110 V22 A16 16 0 0 1 20 6 Z" fill="#FFFFFF" stroke="#1A1714" stroke-width="5" stroke-linejoin="round"/>
+        <path d="M110 6 H174 A16 16 0 0 1 190 22 V56.67 A16 16 0 1 0 190 75.33 V110 A16 16 0 0 1 174 126 H110 A16 16 0 0 1 94 110 V88.96 A24 24 0 1 1 94 43.04 V22 A16 16 0 0 1 110 6 Z" fill="#E9F7EF" stroke="#2F9E5B" stroke-width="5" stroke-linejoin="round"/>
+        <path d="M212 6 H380 A16 16 0 0 1 396 22 V110 A16 16 0 0 1 380 126 H212 A16 16 0 0 1 196 110 V88.96 A24 24 0 1 1 196 43.04 V22 A16 16 0 0 1 212 6 Z" fill="#FFFFFF" stroke="#1A1714" stroke-width="5" stroke-linejoin="round"/>
+        <text class="piece-word" x="46" y="66" text-anchor="middle" dominant-baseline="central" font-size="24">They</text>
+        <text class="piece-word are" x="157" y="66" text-anchor="middle" dominant-baseline="central" font-size="24">are</text>
+        <text class="piece-word" x="308" y="66" text-anchor="middle" dominant-baseline="central" font-size="24">students.</text>
+      </svg>
+    </div>
+
+    <h2>More examples</h2>
 
     <div class="line">
       <svg class="draw" viewBox="0 0 96 96" aria-hidden="true">
@@ -118,76 +305,6 @@
       </svg>
       <p>I <span class="am">am</span> a teacher.</p>
     </div>
-
-    <div class="line">
-      <svg class="draw" viewBox="0 0 96 96" aria-hidden="true">
-        <path d="M24 90 V56 c0-10 10-18 24-18 s24 8 24 18 V90 Z" fill="#F4F7FA" stroke="#7E93A8" stroke-width="2.5"/>
-        <path d="M48 42 V90" stroke="#7E93A8" stroke-width="2.5"/>
-        <circle cx="48" cy="30" r="14" fill="#2A241F"/>
-        <circle cx="48" cy="36" r="13" fill="#F3C7A6"/>
-        <path d="M40 48 c0 8 3 12 8 14 c5-2 8-6 8-14" fill="none" stroke="#2F6FE4" stroke-width="3.5" stroke-linecap="round"/>
-        <path d="M38 46 v7 M58 46 v7" stroke="#2F6FE4" stroke-width="3.5" stroke-linecap="round"/>
-        <circle cx="48" cy="66" r="5" fill="none" stroke="#2F6FE4" stroke-width="3"/>
-        <circle cx="48" cy="66" r="2" fill="#2F6FE4"/>
-      </svg>
-      <p>He <span class="is">is</span> a doctor.</p>
-    </div>
-
-    <div class="line">
-      <svg class="draw" viewBox="0 0 96 96" aria-hidden="true">
-        <path d="M64 12 L92 22 L64 32 L72 22 Z" fill="#2F6FE4"/>
-        <path d="M20 90 V58 c0-10 8-16 20-16 s20 6 20 16 V90 Z" fill="#1E4E86"/>
-        <circle cx="40" cy="52" r="13" fill="#F3C7A6"/>
-        <path d="M24 44 h32 v-2 c0-12-7-16-16-16 s-16 5-16 16 v2z" fill="#16324F"/>
-        <rect x="18" y="40" width="44" height="8" rx="2" fill="#12283F"/>
-        <path d="M30 44 h20" stroke="#E2B84A" stroke-width="2.5" stroke-linecap="round"/>
-        <path d="M32 44 l-6-4 M48 44 l6-4" stroke="#E2B84A" stroke-width="2.5" stroke-linecap="round"/>
-      </svg>
-      <p>You <span class="are">are</span> a pilot.</p>
-    </div>
-
-    <h2>How to form</h2>
-
-    <div class="form-row">
-      <svg viewBox="0 0 500 80" preserveAspectRatio="none" aria-hidden="true">
-        <path d="M230 8 H482 A10 10 0 0 1 492 18 V62 A10 10 0 0 1 482 72 H230 A10 10 0 0 1 220 62 V55 A15 15 0 0 0 220 25 V18 A10 10 0 0 1 230 8 Z" fill="#FFFFFF" stroke="#D06A52" stroke-width="3" stroke-linejoin="round"/>
-        <path d="M130 8 H220 V28 A12 12 0 0 1 220 52 V72 H130 A10 10 0 0 1 120 62 V55 A15 15 0 0 0 120 25 V18 A10 10 0 0 1 130 8 Z" fill="#FFF1EC" stroke="#E24A2B" stroke-width="3" stroke-linejoin="round"/>
-        <path d="M18 8 H120 V28 A12 12 0 0 1 120 52 V72 H18 A10 10 0 0 1 8 62 V18 A10 10 0 0 1 18 8 Z" fill="#FFFFFF" stroke="#D06A52" stroke-width="3" stroke-linejoin="round"/>
-      </svg>
-      <div class="form-words">
-        <span>I</span>
-        <span class="am">am</span>
-        <span>a teacher.</span>
-      </div>
-    </div>
-
-    <div class="form-row">
-      <svg viewBox="0 0 500 80" preserveAspectRatio="none" aria-hidden="true">
-        <path d="M230 8 H482 A10 10 0 0 1 492 18 V62 A10 10 0 0 1 482 72 H230 A10 10 0 0 1 220 62 V55 A15 15 0 0 0 220 25 V18 A10 10 0 0 1 230 8 Z" fill="#FFFFFF" stroke="#D06A52" stroke-width="3" stroke-linejoin="round"/>
-        <path d="M130 8 H220 V28 A12 12 0 0 1 220 52 V72 H130 A10 10 0 0 1 120 62 V55 A15 15 0 0 0 120 25 V18 A10 10 0 0 1 130 8 Z" fill="#EEF3FC" stroke="#2F6FE4" stroke-width="3" stroke-linejoin="round"/>
-        <path d="M18 8 H120 V28 A12 12 0 0 1 120 52 V72 H18 A10 10 0 0 1 8 62 V18 A10 10 0 0 1 18 8 Z" fill="#FFFFFF" stroke="#D06A52" stroke-width="3" stroke-linejoin="round"/>
-      </svg>
-      <div class="form-words">
-        <span>He</span>
-        <span class="is">is</span>
-        <span>a doctor.</span>
-      </div>
-    </div>
-
-    <div class="form-row">
-      <svg viewBox="0 0 500 80" preserveAspectRatio="none" aria-hidden="true">
-        <path d="M230 8 H482 A10 10 0 0 1 492 18 V62 A10 10 0 0 1 482 72 H230 A10 10 0 0 1 220 62 V55 A15 15 0 0 0 220 25 V18 A10 10 0 0 1 230 8 Z" fill="#FFFFFF" stroke="#D06A52" stroke-width="3" stroke-linejoin="round"/>
-        <path d="M130 8 H220 V28 A12 12 0 0 1 220 52 V72 H130 A10 10 0 0 1 120 62 V55 A15 15 0 0 0 120 25 V18 A10 10 0 0 1 130 8 Z" fill="#E9F7EF" stroke="#2F9E5B" stroke-width="3" stroke-linejoin="round"/>
-        <path d="M18 8 H120 V28 A12 12 0 0 1 120 52 V72 H18 A10 10 0 0 1 8 62 V18 A10 10 0 0 1 18 8 Z" fill="#FFFFFF" stroke="#D06A52" stroke-width="3" stroke-linejoin="round"/>
-      </svg>
-      <div class="form-words">
-        <span>They</span>
-        <span class="are">are</span>
-        <span>students.</span>
-      </div>
-    </div>
-
-    <h2>More examples</h2>
 
     <div class="line">
       <svg class="draw" viewBox="0 0 96 96" aria-hidden="true">
@@ -208,6 +325,19 @@
         <rect x="40" y="64" width="16" height="12" rx="3" fill="#F6E7B2"/>
       </svg>
       <p>It <span class="is">is</span> a bag.</p>
+    </div>
+
+    <div class="line">
+      <svg class="draw" viewBox="0 0 96 96" aria-hidden="true">
+        <path d="M64 12 L92 22 L64 32 L72 22 Z" fill="#2F6FE4"/>
+        <path d="M20 90 V58 c0-10 8-16 20-16 s20 6 20 16 V90 Z" fill="#1E4E86"/>
+        <circle cx="40" cy="52" r="13" fill="#F3C7A6"/>
+        <path d="M24 44 h32 v-2 c0-12-7-16-16-16 s-16 5-16 16 v2z" fill="#16324F"/>
+        <rect x="18" y="40" width="44" height="8" rx="2" fill="#12283F"/>
+        <path d="M30 44 h20" stroke="#E2B84A" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M32 44 l-6-4 M48 44 l6-4" stroke="#E2B84A" stroke-width="2.5" stroke-linecap="round"/>
+      </svg>
+      <p>You <span class="are">are</span> a pilot.</p>
     </div>
 
     <div class="line">
@@ -239,22 +369,44 @@
       <p>They <span class="are">are</span> students.</p>
     </div>
 
+    <section class="time">
+      <div class="time-line">
+        <div class="mark">
+          <span class="dot"></span>
+          <span class="lab">past</span>
+        </div>
+        <div class="mark now">
+          <span class="dot"></span>
+          <span class="lab">now</span>
+        </div>
+        <div class="mark">
+          <span class="dot"></span>
+          <span class="lab">future</span>
+        </div>
+      </div>
+      <p class="caption">This lesson is about now.</p>
+      <span class="blank"></span>
+    </section>
+
     <section class="problems">
       <h2>Common problems</h2>
       <div class="problem">
         <p class="wrong">He a doctor.</p>
         <p class="right">He <span class="is">is</span> a doctor.</p>
         <p class="why">The be word is missing.</p>
+        <span class="blank"></span>
       </div>
       <div class="problem">
-        <p class="wrong">I <span class="is">is</span> a teacher.</p>
+        <p class="wrong">I is a teacher.</p>
         <p class="right">I <span class="am">am</span> a teacher.</p>
-        <p class="why">I takes <span class="am">am</span>.</p>
+        <p class="why">I takes am.</p>
+        <span class="blank"></span>
       </div>
       <div class="problem">
-        <p class="wrong">They <span class="is">is</span> students.</p>
+        <p class="wrong">They are be students.</p>
         <p class="right">They <span class="are">are</span> students.</p>
-        <p class="why">They takes <span class="are">are</span>.</p>
+        <p class="why">Use are. Do not add be as well.</p>
+        <span class="blank"></span>
       </div>
     </section>
   </main>
